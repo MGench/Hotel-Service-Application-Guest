@@ -2,9 +2,11 @@ package com.example.prototype;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class CleaningService extends AppCompatActivity implements View.OnClickListener {
@@ -27,5 +29,17 @@ public class CleaningService extends AppCompatActivity implements View.OnClickLi
                 break;
 
         }
+    }
+
+
+    public void sendMessage(View v)
+    {
+        String message;
+        message = ((TextView)v).getText().toString();
+        Intent i = new Intent();
+        i.setAction(Intent.ACTION_SEND);
+        i.putExtra(Intent.EXTRA_TEXT, message);
+        i.setType("text/plain");
+        startActivity(i);
     }
 }
