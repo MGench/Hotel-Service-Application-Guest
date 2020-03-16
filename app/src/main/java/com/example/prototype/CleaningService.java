@@ -1,45 +1,58 @@
 package com.example.prototype;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.EditText;
 import android.widget.Toast;
 
-public class CleaningService extends AppCompatActivity implements View.OnClickListener {
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+public class CleaningService extends AppCompatActivity {
+
+    EditText serviceRequest;
+    Button sendButton;
+    DatabaseReference reff;
+    Guest guest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cleaning_service);
         getSupportActionBar().setTitle("Cleaning Service");
+        serviceRequest=(EditText)findViewById(R.id.serviceRequest);
+        sendButton=(Button)findViewById(R.id.sendButton);
+        guest = new Guest();
+        reff= FirebaseDatabase.getInstance().getReference().child("Guest");
 
-        Button button5 = findViewById(R.id.button5);
-        button5.setOnClickListener(this);
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+           public void onClick (View view) {
+
+                guest.setRequest(serviceRequest.getText().toString().trim());
+
+                reff.child("guest1").setValue(guest);
+               Toast.makeText(CleaningService.this, "Message sent successfully.", Toast.LENGTH_LONG).show();
+            }
+       });
+
+        reff.child("guest1").setValue(guest).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()){
+                    Toast.makeText(CleaningService.this, "Success" , Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Toast.makeText(CleaningService.this, "Error: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
     }
 
-    @Override
-    public void onClick (View v) {
-        switch (v.getId()) {
-            case R.id.button5:
-                Toast.makeText(this, "Message sent succesfully", Toast.LENGTH_SHORT ).show();
-                break;
-
-        }
-    }
-
-
-    public void sendMessage(View v)
-    {
-        String message;
-        message = ((TextView)v).getText().toString();
-        Intent i = new Intent();
-        i.setAction(Intent.ACTION_SEND);
-        i.putExtra(Intent.EXTRA_TEXT, message);
-        i.setType("text/plain");
-        startActivity(i);
-    }
 }

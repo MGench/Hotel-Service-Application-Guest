@@ -9,4 +9,5 @@
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_requesttab">requesttab</string>
     <string name="title_activity_tabs">Tabs</string>
+    <string name="service">Enter text here</string>
 </resources>

@@ -7,36 +7,8 @@
     android:background="@drawable/gradient"
     tools:context=".CleaningService">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="399dp"
-        android:layout_height="299dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="280dp"
-        android:layout_marginEnd="-4dp"
-        android:textColorHint="#FFFFFF">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter text here.."
-            android:shadowColor="#F8F1F5F4"
-            android:textColor="#F8F1F5F4"
-            android:textColorHighlight="#F8F1F5F4"
-            android:textColorHint="#F1E9E9"
-            android:textColorLink="#F8F1F5F4"
-            android:textSize="24sp"
-            android:textStyle="normal"
-            android:id="@+id/et1"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/sendButton"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -46,8 +18,7 @@
         android:layout_marginRight="150dp"
         android:layout_marginBottom="55dp"
         android:text="Send"
-        android:textSize="24sp"
-        android:onClick="sendMessage"/>
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/textView12"
@@ -62,5 +33,29 @@
         android:text="Describe the cleaning service you require and any valuables which you may not want the cleaners to touch."
         android:textColor="#78AB46"
         android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/serviceRequest"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="297dp"
+        android:hint="@string/service"
+        />
+
+    <!--    <EditText-->
+<!--        android:id="@+id/et1"-->
+<!--        android:layout_width="227dp"-->
+<!--        android:layout_height="97dp"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:layout_marginStart="82dp"-->
+<!--        android:layout_marginLeft="82dp"-->
+<!--        android:layout_marginTop="339dp"-->
+<!--        android:ems="10"-->
+<!--        android:inputType="textPersonName"-->
+<!--        android:text="Enter text here..." />-->
 
 </RelativeLayout>
