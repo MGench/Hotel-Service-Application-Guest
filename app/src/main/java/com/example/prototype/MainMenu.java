@@ -32,40 +32,21 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
-        transportation.setOnClickListener(new View.OnClickListener() {
+        class MyListener implements View.OnClickListener
+        {
+            String message = "This action is unavailable.";
             @Override
-            public void onClick(View v) {
-                Toast.makeText(MainMenu.this, "This action is unavailable", Toast.LENGTH_LONG).show();
+            public void onClick(View view){
+                Toast.makeText(MainMenu.this,message,Toast.LENGTH_LONG).show();
             }
-        });
+        }
 
-        foodservice.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainMenu.this, "This action is unavailable", Toast.LENGTH_LONG).show();
-            }
-        });
+        transportation.setOnClickListener(new MyListener());
+        foodservice.setOnClickListener(new MyListener());
+        maintenance.setOnClickListener(new MyListener());
+        checkout.setOnClickListener(new MyListener());
+        baggagecollection.setOnClickListener(new MyListener());
 
-        maintenance.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainMenu.this, "This action is unavailable", Toast.LENGTH_LONG).show();
-            }
-        });
-
-        checkout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainMenu.this, "This action is unavailable", Toast.LENGTH_LONG).show();
-            }
-        });
-
-        baggagecollection.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainMenu.this, "This action is unavailable", Toast.LENGTH_LONG).show();
-            }
-        });
 
     }
 
