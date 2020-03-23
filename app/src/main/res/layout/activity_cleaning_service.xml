@@ -36,12 +36,11 @@
 
     <EditText
         android:id="@+id/serviceRequest"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_width="359dp"
+        android:layout_height="91dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="297dp"
-        android:hint="@string/service"
-        />
+        android:hint="@string/service" />
 
     <!--    <EditText-->
 <!--        android:id="@+id/et1"-->
