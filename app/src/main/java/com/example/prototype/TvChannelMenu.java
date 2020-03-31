@@ -13,10 +13,10 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class TvChannelMenu extends AppCompatActivity {
 
-    public CheckBox EighthCheckBox, NinthCheckBox, TenthCheckBox, EleventhCheckBox;
+    public CheckBox documentary, horror, kids, sports;
     DatabaseReference reff;
 
-    private Button button4;
+    private Button confirmButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,30 +24,30 @@ public class TvChannelMenu extends AppCompatActivity {
         setContentView(R.layout.activity_tv_channel_menu);
         getSupportActionBar().setTitle("Tv Channel Menu");
 
-        EighthCheckBox = findViewById(R.id.cb8);
-        NinthCheckBox = findViewById(R.id.cb9);
-        TenthCheckBox = findViewById(R.id.cb10);
-        EleventhCheckBox = findViewById(R.id.cb11);
+        documentary = findViewById(R.id.cb8);
+        horror = findViewById(R.id.cb9);
+        kids = findViewById(R.id.cb10);
+        sports = findViewById(R.id.cb11);
 
-        button4 = (Button) findViewById(R.id.button4);
+        confirmButton = (Button) findViewById(R.id.confirmButton);
 
-        button4.setOnClickListener(new View.OnClickListener() {
+        confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 DatabaseReference guest_db = reff.child("guest1");
 
-                if(EighthCheckBox.isChecked()) {
+                if(documentary.isChecked()) {
                     guest_db.child("request").setValue("Documentary");
                 }
 
-                if(NinthCheckBox.isChecked()) {
+                if(horror.isChecked()) {
                     guest_db.child("request").setValue("Horror");
                 }
 
-                if(TenthCheckBox.isChecked()) {
+                if(kids.isChecked()) {
                     guest_db.child("request").setValue("Kids");
                 }
-                if(EleventhCheckBox.isChecked()) {
+                if(sports.isChecked()) {
                     guest_db.child("request").setValue("Sports");
                 }
 

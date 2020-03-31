@@ -13,10 +13,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class ToiletriesMenu extends AppCompatActivity {
-public CheckBox FirstCheckBox, SecondCheckBox, ThirdCheckBox, FourthCheckBox, FifthCheckBox, SixthCheckBox, SeventhCheckBox;
+public CheckBox toiletpaper, toothbrush, toothPaste, handwash, shampoo, moisturiser, towels;
 DatabaseReference reff;
 
-private Button button3;
+private Button confirmButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,45 +24,45 @@ private Button button3;
         setContentView(R.layout.activity_toiletries_menu);
         getSupportActionBar().setTitle("Toiletries");
 
-        FirstCheckBox = findViewById(R.id.cb1);
-        SecondCheckBox = findViewById(R.id.cb2);
-        ThirdCheckBox = findViewById(R.id.cb3);
-        FourthCheckBox = findViewById(R.id.cb4);
-        FifthCheckBox = findViewById(R.id.cb5);
-        SixthCheckBox = findViewById(R.id.cb6);
-        SeventhCheckBox = findViewById(R.id.cb7);
+        toiletpaper = findViewById(R.id.cb1);
+        toothbrush = findViewById(R.id.cb2);
+        toothPaste = findViewById(R.id.cb3);
+        handwash = findViewById(R.id.cb4);
+        shampoo = findViewById(R.id.cb5);
+        moisturiser = findViewById(R.id.cb6);
+        towels = findViewById(R.id.cb7);
 
-        button3 = (Button) findViewById(R.id.button3);
+        confirmButton = (Button) findViewById(R.id.confirmButton);
 
-        button3.setOnClickListener(new View.OnClickListener() {
+        confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 DatabaseReference guest_db = reff.child("guest1");
 
-                if(FirstCheckBox.isChecked()) {
+                if(toiletpaper.isChecked()) {
                     guest_db.child("request").setValue("Toiletpaper");
                 }
 
-                if(SecondCheckBox.isChecked()) {
+                if(toothbrush.isChecked()) {
                     guest_db.child("request").setValue("Toothbrush");
                 }
 
-                if(ThirdCheckBox.isChecked()) {
+                if(toothPaste.isChecked()) {
                     guest_db.child("request").setValue("Toothpaste");
                 }
-                if(FourthCheckBox.isChecked()) {
+                if(handwash.isChecked()) {
                     guest_db.child("request").setValue("Handwash");
                 }
 
-                if(FifthCheckBox.isChecked()) {
+                if(shampoo.isChecked()) {
                     guest_db.child("request").setValue("Shampoo");
                 }
 
-                if(SixthCheckBox.isChecked()) {
+                if(moisturiser.isChecked()) {
                     guest_db.child("request").setValue("Moisturiser");
                 }
 
-                if(SeventhCheckBox.isChecked()) {
+                if(towels.isChecked()) {
                     guest_db.child("request").setValue("Towels");
                 }
 
